@@ -1,0 +1,138 @@
+.app-p-break{
+    width: 45%;
+    font-size: 0.6em;
+    word-break:normal;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+
+.header h1{
+    display: inline-block;
+    color: #fff;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+    vertical-align: middle;
+}
+
+.logo img{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+.change-locale{
+    display: inline-block;
+    float: right;
+}
+
+/*div{*/
+/*    background-color: #000;*/
+/*}*/
+
+
+
+span,h1,small{
+    color:#fff
+}
+
+
+.ant-modal-content span {
+    color: black;
+}
+
+.ant-modal-content input {
+    color: black;
+}
+.ant-select-selection-selected-value span {
+    color: black;
+}
+
+.ant-select-selection-selected-value {
+    color: black;
+}
+
+.ant-descriptions-item-label,.ant-statistic-title, .ant-descriptions-title{
+    color:#fff !important;
+}
+
+.content-border{
+    padding: 10px;
+    border: 3px solid #fff;
+    border-radius: 15px;
+}
+
+.ant-btn-primary-disabled, .ant-btn-primary.disabled, .ant-btn-primary[disabled], .ant-btn-primary-disabled:hover, .ant-btn-primary.disabled:hover, .ant-btn-primary[disabled]:hover, .ant-btn-primary-disabled:focus, .ant-btn-primary.disabled:focus, .ant-btn-primary[disabled]:focus, .ant-btn-primary-disabled:active, .ant-btn-primary.disabled:active, .ant-btn-primary[disabled]:active, .ant-btn-primary-disabled.active, .ant-btn-primary.disabled.active, .ant-btn-primary[disabled].active {
+    background-color: #9fa2a2 !important;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.fire-icon{
+    position: relative;
+    /* top: 0; */
+    /* left: 78px; */
+    top: -10px;
+}
+
+.content-border2{
+    padding: 10px;
+}
+
+.ant-list-split .ant-list-item {
+     border-bottom: unset;
+}
+
+.ant-notification-close-icon {
+    font-size: 14px;
+    cursor: pointer;
+    color: black;
+}
+
+.antd-pro-charts-pie-pie .antd-pro-charts-pie-legendTitle {
+    color: #ffffff !important;
+}
+
+.antd-pro-charts-pie-pie .antd-pro-charts-pie-percent{
+    color: #ffffff !important;
+}
+
+.antd-pro-charts-pie-pie .antd-pro-charts-pie-total > h4 {
+    height: 22px;
+    margin-bottom: 8px;
+    color: #ffffff !important;
+    font-weight: normal;
+    font-size: 8px !important;
+    line-height: 22px;
+}
+
+.antd-pro-charts-water-wave-waterWave .antd-pro-charts-water-wave-text span {
+    color: #ffffff !important;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.antd-pro-charts-water-wave-waterWave .antd-pro-charts-water-wave-text h4 {
+    color: #ffffff !important;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.ant-descriptions-item-content {
+    display: table-cell;
+    color: #ffffff !important;
+    font-size: 14px;
+    line-height: 1.5;
+}
