@@ -620,8 +620,6 @@ class ContentPage extends Component {
             })
         }
 
-        console.log("ct_details", that.state.ct_details);
-
         return (
             <div className="App">
                 <Content>
