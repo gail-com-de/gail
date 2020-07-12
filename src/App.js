@@ -601,11 +601,10 @@ class ContentPage extends Component {
             returnPercent = (a * 100 / parseFloat(b)).toFixed(2);
         }
 
-        // const countDown = new Date(staticTimestamp*1000).getTime() + 24*60*60*1000;
-        const countDown = new Date(staticTimestamp * 1000).getTime() + 10 * 60 * 1000;
+        const countDown = new Date(staticTimestamp*1000).getTime() + 24*60*60*1000;
         let showCountDown = countDown > new Date().getTime();
 
-        let nextWithdrawTime = (withdrawTimestamp + 30 * 60) * 1000;
+        let nextWithdrawTime = (withdrawTimestamp + 3 * 24 * 60 * 60) * 1000;
 
         let topsHtml;
         if (that.state.topTenInfo && that.state.topTenInfo.items.length > 0) {
