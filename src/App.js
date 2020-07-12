@@ -291,24 +291,52 @@ class ContentPage extends Component {
     getAccount(pk) {
         let that = this;
         seropp.getAccountDetail(pk, function (currentAccount) {
-            let balanceSero = 0;
-            let balanceTicket = 0;
-            let balanceObj = currentAccount.Balance;
-            balanceObj.forEach(function (value, currency) {
-                if (currency === 'SERO') {
-                    balanceSero = new BigNumber(value).dividedBy(decimal).toFixed(6);
-                } else if (currency === 'GAIL') {
-                    balanceTicket = new BigNumber(value).dividedBy(decimal).toFixed(6);
-                }
-            });
+            if(currentAccount) {
+                let balanceSero = 0;
+                let balanceTicket = 0;
+                let balanceObj = currentAccount.Balance;
+                balanceObj.forEach(function (value, currency) {
+                    if (currency === 'SERO') {
+                        balanceSero = new BigNumber(value).dividedBy(decimal).toFixed(6);
+                    } else if (currency === 'GAIL') {
+                        balanceTicket = new BigNumber(value).dividedBy(decimal).toFixed(6);
+                    }
+                });
 
-            let data = new identicon(pk, 200).toString();
-            currentAccount["avatar"] = "data:image/png;base64," + data;
-            that.setState({
-                currentAccount: currentAccount,
-                balanceSero: balanceSero,
-                balanceTicket: balanceTicket
-            });
+                let data = new identicon(pk, 200).toString();
+                currentAccount["avatar"] = "data:image/png;base64," + data;
+                that.setState({
+                    currentAccount: currentAccount,
+                    balanceSero: balanceSero,
+                    balanceTicket: balanceTicket
+                });
+            } else {
+                seropp.getAccountList(function (accounts) {
+                    if(accounts.length == 0) {
+                        return;
+                    }
+                    let currentAccount = accounts[0];
+                    let balanceSero = 0;
+                    let balanceTicket = 0;
+                    let balanceObj = currentAccount.Balance;
+                    balanceObj.forEach(function (value, currency) {
+                        if (currency === 'SERO') {
+                            balanceSero = new BigNumber(value).dividedBy(decimal).toFixed(6);
+                        } else if (currency === 'GAIL') {
+                            balanceTicket = new BigNumber(value).dividedBy(decimal).toFixed(6);
+                        }
+                    });
+
+                    let data = new identicon(pk, 200).toString();
+                    currentAccount["avatar"] = "data:image/png;base64," + data;
+                    that.setState({
+                        currentAccount: currentAccount,
+                        balanceSero: balanceSero,
+                        balanceTicket: balanceTicket
+                    });
+                })
+            }
+
         });
     }
 
@@ -600,7 +628,7 @@ class ContentPage extends Component {
                 <Content>
                     <div style={{background: '#000', minHeight: document.body.clientHeight}}>
 
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "0px 15px"}}>
                             <List itemLayout="vertical" size="large" rowKey="1">
                                 <List.Item>
                                     <Skeleton loading={loading} avatar>
@@ -620,7 +648,7 @@ class ContentPage extends Component {
                                                                 </small>
                                                             </Col>
                                                             <Col span={8}>
-                                                                <Button size="small" type="link" onClick={() => {
+                                                                <Button size="small" type="primary" onClick={() => {
                                                                     this.setState({
                                                                         showAccountSelect: true
                                                                     })
@@ -864,15 +892,16 @@ class ContentPage extends Component {
                                                 <Descriptions.Item
                                                     label={Lang[this.state.lang].account.title.latestTime}>{convertUTCDate(staticTimestamp)}</Descriptions.Item>
                                             </Descriptions>
+                                            <div className="footer-n" style={{textAlign:'center',color:'white'}}>
+                                                <div>开源地址：https://github.com/gail-com-de/gail</div>
+                                            </div>
                                         </div>
                                     </Skeleton>
                                 </List.Item>
 
                             </List>
                         </div>
-                        <div className="footer-n" style={{textAlign:'center',color:'white'}}>
-                            <div>开源地址：https://github.com/gail-com-de/gail</div>
-                        </div>
+
                     </div>
                 </Content>
 
