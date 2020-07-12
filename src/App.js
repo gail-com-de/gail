@@ -373,7 +373,7 @@ class ContentPage extends Component {
         let that = this;
         let res = that.callMethod("poolBalance", [], function (res) {
             that.setState({
-                poolBalance: new BigNumber(res).dividedBy(decimal).toFixed(6)
+                poolBalance: new BigNumber(res[0]).dividedBy(decimal).toFixed(6)
             })
         });
     }
@@ -700,7 +700,7 @@ class ContentPage extends Component {
                                                     <Statistic title={Lang[this.state.lang].account.title.availableSero}
                                                                value={new BigNumber(this.state.ct_details.seroBalance ? this.state.ct_details.seroBalance : 0).toFixed(6)}
                                                                precision={6}/>
-                                                    <Button style={{marginTop: 16}} type="primary" onClick={() => {
+                                                    <Button disabled={!this.state.ct_details.id} style={{marginTop: 16}} type="primary" onClick={() => {
                                                         this.setState({showInvest: true, investCurrency: "SERO"})
                                                     }}>{Lang[this.state.lang].account.button.invest}</Button>
                                                 </Col>
@@ -710,7 +710,7 @@ class ContentPage extends Component {
                                                         title={Lang[this.state.lang].account.title.availableTicket}
                                                         value={new BigNumber(this.state.ct_details.ticketBalance ? this.state.ct_details.ticketBalance : 0).toFixed(6)}
                                                         precision={6}/>
-                                                    <Button style={{marginTop: 16}} type="primary" onClick={() => {
+                                                    <Button disabled={!this.state.ct_details.id} style={{marginTop: 16}} type="primary" onClick={() => {
                                                         this.setState({showInvest: true, investCurrency: "GAIL"})
                                                     }}>{Lang[this.state.lang].account.button.deposit}</Button>
                                                 </Col>
