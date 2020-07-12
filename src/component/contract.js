@@ -10,7 +10,7 @@ class Contract{
         github: "https://github.com/gail-com-de/gail",
         author: "gail-com-de",
         url: document.location.href,
-        logo: document.location.protocol + '//' + document.location.host + '/gail/logo.png'
+        logo: document.location.protocol + '//' + document.location.host + '/logo.png'
     };
 }
 
