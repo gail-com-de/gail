@@ -373,7 +373,7 @@ class ContentPage extends Component {
         let that = this;
         let res = that.callMethod("poolBalance", [], function (res) {
             that.setState({
-                poolBalance: new BigNumber(res[0]).dividedBy(decimal).toFixed(6)
+                poolBalance: new BigNumber(res).dividedBy(decimal).toFixed(6)
             })
         });
     }
@@ -575,19 +575,19 @@ class ContentPage extends Component {
         const salesPieData = [
             {
                 x: Lang[this.state.lang].account.title.staticReward,
-                y: parseFloat(staticReward),
+                y: Number(staticReward),
             },
             {
                 x: Lang[this.state.lang].account.title.recommendReward,
-                y: parseFloat(recommendReward),
+                y: Number(recommendReward),
             },
             {
                 x: Lang[this.state.lang].account.title.nobilityReward,
-                y: parseFloat(nobilityReward),
+                y: Number(nobilityReward),
             },
             {
                 x: Lang[this.state.lang].account.title.vipReward,
-                y: parseFloat(vipReward),
+                y: Number(vipReward),
             },
 
         ];
